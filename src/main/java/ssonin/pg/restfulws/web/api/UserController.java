@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ssonin.pg.restfulws.domain.User;
+import ssonin.pg.restfulws.model.UserDto;
 import ssonin.pg.restfulws.service.UserService;
 
 @RestController
@@ -24,8 +24,8 @@ class UserController {
     }
 
     @PostMapping(consumes = "application/json")
-    public ResponseEntity<User> postUser(@RequestBody User user) {
-        return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
+    public ResponseEntity<UserDto> postUser(@RequestBody UserDto userDto) {
+        return new ResponseEntity<>(userService.create(userDto), HttpStatus.CREATED);
     }
 
     @PutMapping

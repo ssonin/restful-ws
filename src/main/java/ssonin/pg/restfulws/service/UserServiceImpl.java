@@ -3,6 +3,7 @@ package ssonin.pg.restfulws.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ssonin.pg.restfulws.domain.User;
+import ssonin.pg.restfulws.model.UserDto;
 import ssonin.pg.restfulws.repository.UserRepository;
 
 @Service
@@ -16,7 +17,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User create(User user) {
-        return this.userRepository.save(user);
+    public UserDto create(UserDto userDto) {
+        User user = User.builder()
+                .firstName(userDto.getFirstName())
+                .lastName(userDto.getLastName())
+                .email(userDto.getEmail())
+                .password(userDto.getPassword()).build();
+        User savedUser = this.userRepository.save(user);
+        UserDto result = new UserDto();
+        result.setFirstName(savedUser.getFirstName());
+        result.setLastName(savedUser.getLastName());
+        result.setEmail(savedUser.getEmail());
+        return result;
     }
 }

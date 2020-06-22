@@ -1,8 +1,8 @@
 package ssonin.pg.restfulws.service;
 
-import ssonin.pg.restfulws.domain.User;
+import ssonin.pg.restfulws.model.UserDto;
 
 public interface UserService {
 
-    User create(User user);
+    UserDto create(UserDto userDto);
 }
