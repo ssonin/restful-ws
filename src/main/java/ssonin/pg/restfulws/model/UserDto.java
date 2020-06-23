@@ -1,12 +1,14 @@
 package ssonin.pg.restfulws.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import lombok.Data;
 
 @Data
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDto {
 
     @JsonIgnore
@@ -14,11 +16,5 @@ public class UserDto {
     private String firstName;
     private String lastName;
     private String email;
-    @JsonIgnore
     private String password;
-
-    @JsonProperty
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

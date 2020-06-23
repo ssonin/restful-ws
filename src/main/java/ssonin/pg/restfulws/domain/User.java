@@ -29,7 +29,7 @@ public class User {
     private final String password;
 
     @Builder
-    User(long id, String firstName, String lastName, String email, String password) {
+    private User(long id, String firstName, String lastName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
