@@ -8,7 +8,7 @@ import ssonin.pg.restfulws.domain.User;
 import ssonin.pg.restfulws.model.UserDto;
 import ssonin.pg.restfulws.repository.UserRepository;
 
-@Service
+@Service("UserService")
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
